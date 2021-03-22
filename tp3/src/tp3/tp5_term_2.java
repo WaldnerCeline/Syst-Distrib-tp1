@@ -4,7 +4,7 @@ import visidia.simulation.SimulationConstants;
 import visidia.simulation.process.algorithm.LC2_Algorithm;
 import visidia.simulation.process.edgestate.MarkedState;
 
-public class tp5_2 extends LC2_Algorithm{
+public class tp5_term_2 extends LC2_Algorithm{
 
 	@Override
 	protected void beforeStart() {
@@ -15,7 +15,7 @@ public class tp5_2 extends LC2_Algorithm{
 
 	@Override
 	public String getDescription() {
-		return "Etoile ouverte Leader \n";
+		return "Etoile ouverte Leader terminaison \n";
 	}
 
 	@Override
@@ -29,6 +29,9 @@ public class tp5_2 extends LC2_Algorithm{
 		}
 		else if(getLocalProperty("label").equals("N") && checkN() == 0) {
 			setLocalProperty("label", "E");
+			//globalTermination();
+		}else if(getLocalProperty("label").equals("F") && checkN() == 0) {
+			localTermination();
 		}
 		putProperty("Affichage", getLocalProperty("voisinN"), SimulationConstants.PropertyStatus.DISPLAYED);
 	}
@@ -46,7 +49,7 @@ public class tp5_2 extends LC2_Algorithm{
 
 	@Override
 	public Object clone() {
-		return new tp5_2();
+		return new tp5_term_2();
 	}
 	
 }
