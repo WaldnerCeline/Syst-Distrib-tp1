@@ -11,6 +11,7 @@ public class Leader extends LC0_Algorithm {
 	protected void beforeStart() {
 		setLocalProperty("label", vertex.getLabel());
 		setLocalProperty("nbVoisin", vertex.getDegree());;
+		putProperty("Affichage", getLocalProperty("nbVoisin"), SimulationConstants.PropertyStatus.DISPLAYED);
 	}
 
 	@Override
